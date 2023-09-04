@@ -5,7 +5,7 @@ pipeline{
 
     agent any
 
-    environments{
+    environment{
         AWS_ACCESS_KEY_ID = credentials('terraform-admin')
         AWS_SECRET_ACCESS_KEY_ID = credentials('terraform-admin')
 
