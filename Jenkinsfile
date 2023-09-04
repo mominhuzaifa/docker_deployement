@@ -17,7 +17,7 @@ pipeline{
         stage('building and pushing docker image to aws ecr'){
             steps{
                 script{
-                    withDockerRegistry([credentialsId:'ecr:ap-south-1:ecr-credential', url:'150387322390.dkr.ecr.ap-south-1.amazonaws.com']){
+                    withDockerRegistry([credentialsId:'ecr:ap-south-1:ecr-credential', url:'https://150387322390.dkr.ecr.ap-south-1.amazonaws.com']){
                         sh 'docker build -t flask-container .'
                         sh 'docker tag flask-container:latest 150387322390.dkr.ecr.ap-south-1.amazonaws.com/flask-container:$BUILD_VERSION'
                         sh 'docker push 150387322390.dkr.ecr.ap-south-1.amazonaws.com/flask-container:$BUILD_VERSION'
